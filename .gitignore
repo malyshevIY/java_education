@@ -3,6 +3,13 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+.gradle/caches/
+.gradle/daemon/
+.gradle/wrapper/
+gradle-app.setting
+
+# Логи сборки Gradle
+gradle.log
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
@@ -40,3 +47,14 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# Файлы компиляции Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Логи и временные файлы
+*.log
+hs_err_pid*
+replay_pid*
