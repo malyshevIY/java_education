@@ -28,7 +28,7 @@ public class Terminal {
                 password
             );
         System.out.println("Account " + bankAccount.getId() +
-            " for" + bankAccount.getFullName() + "  successfully created");
+            " for " + bankAccount.getFullName() + "  successfully created");
         return bankAccount;
     }
 
@@ -56,7 +56,7 @@ public class Terminal {
         } else {
             System.out.println("Please enter the amount: ");
 //            double amount = scanner.nextDouble();
-            debitCards.deposit(10.0);
+            debitCards.deposit(10);
             System.out.println("Balance debit card "
                 + debitCards.getCardNumber() + " = "
                 + debitCards.getBalance());
@@ -70,7 +70,7 @@ public class Terminal {
         } else {
             System.out.println("Please enter the withdrawal amount: ");
 //            double amount = scanner.nextDouble();
-            debitCards.withdraw(10.0);
+            debitCards.withdraw(10.00);
             System.out.println("Balance debit card "
                 + debitCards.getCardNumber() + " = "
                 + debitCards.getBalance());
@@ -93,9 +93,16 @@ public class Terminal {
             switch (scanner.nextLine()) {
                 case "1":
                     currentBankAccount = createAccount();
+                    currentDebitCard = null; // Сброс предыдущей карты, если аккаунт изменился
                     break;
                 case "2":
-                    currentDebitCard = createDebitCard(currentBankAccount);
+                    if (currentBankAccount == null) {
+                        System.out.println("Please create an account first!");
+                    } else if (currentDebitCard == null) {
+                        currentDebitCard = createDebitCard(currentBankAccount);
+                    } else {
+                        System.out.println("Debit card is already created for " + currentBankAccount.getFullName());
+                    }
                     break;
                 case "3":
                     checkBalance(currentDebitCard);

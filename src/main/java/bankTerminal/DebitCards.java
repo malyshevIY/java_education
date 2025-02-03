@@ -28,9 +28,10 @@ public class DebitCards {
         while (isNotNegative) {
             if (amount <= 0) {
                 System.out.println("The amount must be greater than 0!, please try again");
-            } else
+            } else {
                 balance += amount;
-            isNotNegative = false;
+                isNotNegative = false;
+            }
         }
     }
 
